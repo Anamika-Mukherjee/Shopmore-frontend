@@ -6,13 +6,22 @@ import ProductDropdown from "./ProductDropdown";
 
 const ProductCard = ({product}: {product: Product}) => {
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
+
+  const handleClick = ()=>{
+    if(!openDropdown){
+      setOpenDropdown(true);
+    }
+    else{
+      setOpenDropdown(false);
+    }
+  }
   
   return (
     <div className="w-auto h-auto flex justify-start items-start space-x-4 relative">
     <div className="w-[300px] h-[350px] flex flex-col justify-start items-center relative p-4 shadow-2xl bg-gray-100 rounded-md space-y-6 z-0">
       <button 
        type="button"
-       onClick={()=>{!openDropdown?setOpenDropdown(true):setOpenDropdown(false)}}
+       onClick={handleClick}
       className="w-full h-[20px] flex justify-end items-center relative left-[10px] hover:cursor-pointer">
         <Image 
          src="/assets/dots.svg"
