@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import ClientLayout from "@/components/ClientLayout";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,9 @@ export default function RootLayout({
     <ClerkProvider>
   
     <html lang="en">
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen min-h-screen h-auto overflow-x-hidden`}
       >
