@@ -2,7 +2,7 @@
 "use client";
 import CategoryFilterHeader from "@/components/CategoryFilterHeader";
 import Header from "@/components/Header";
-import { productsContext } from "@/contexts/productsContext";
+import { ProductsContextProvider } from "@/contexts/productsContext";
 import { useState } from "react";
 
 export default function Layout({
@@ -14,11 +14,11 @@ export default function Layout({
     const [products, setProducts] = useState<Product[]>([]);
     return (
           <>
-          <productsContext.Provider value={{products, setProducts}}>
+          <ProductsContextProvider>
             <Header />
             <CategoryFilterHeader />
             {children}
-          </productsContext.Provider>
+          </ProductsContextProvider>
           </>
     );
   }
