@@ -23,7 +23,7 @@ const profileSchema = z.object({
 //define type for schema
 type ProfileSchema= z.infer<typeof profileSchema>;
 
-const page = () => {
+const OnboardingPage = () => {
     const {user, isLoaded} = useUser();
     const router = useRouter();
     const {setError} = useErrorContext();
@@ -83,9 +83,8 @@ const page = () => {
             }
           }      
       }
-      catch(err: any){
-        console.log(err.message);
-        setError(err.message);
+      catch(err){
+        console.log(err);
       }
       finally{
         setLoading(false);
@@ -155,4 +154,4 @@ const page = () => {
     )
 }
 
-export default page;
+export default OnboardingPage;

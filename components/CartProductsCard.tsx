@@ -165,9 +165,8 @@ const CartProductsCard = ({productId}: {productId: string}) => {
             }
            
         }
-        catch(err: any){
+        catch(err){
             console.log(err);
-            setError(err.message);
         }
         finally{
             setLoading(false);

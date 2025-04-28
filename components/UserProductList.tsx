@@ -36,9 +36,8 @@ const UserProductList = () => {
                         setAllProducts(data.products);
                     }               
             }
-            catch(err: any){
+            catch(err){
              console.log(err);
-             setError(err.message);
             }
             finally{
                 setLoading(false);

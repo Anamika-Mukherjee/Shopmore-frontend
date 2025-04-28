@@ -4,7 +4,7 @@ import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-const page = () => {
+const RedirectToDashboardPage = () => {
     const {user} = useUser();
     const router = useRouter();
 
@@ -28,4 +28,4 @@ const page = () => {
     )
 }
 
-export default page
+export default RedirectToDashboardPage;

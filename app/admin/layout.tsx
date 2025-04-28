@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import AdminSideBar from "@/components/AdminSideBar";
 import AdminHeader from "@/components/AdminHeader";
 
-const layout=({children}: Readonly<{children: React.ReactNode;}>)=>{
+const Layout=({children}: Readonly<{children: React.ReactNode;}>)=>{
   const {getToken} = useAuth();
   
     const { user, isLoaded } = useUser();
@@ -70,4 +70,4 @@ const layout=({children}: Readonly<{children: React.ReactNode;}>)=>{
       )
 }
 
-export default layout;
+export default Layout;

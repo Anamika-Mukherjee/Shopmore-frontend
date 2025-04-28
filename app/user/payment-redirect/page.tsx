@@ -10,7 +10,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
 
-const page = () => {
+const PaymentRedirectPage = () => {
     const {user} = useUser();
     const searchParams = useSearchParams();
     const linkId = searchParams.get("link_id");
@@ -69,7 +69,7 @@ const page = () => {
             }
             fetchPaymentData();
           }
-          catch(err: any){
+          catch(err){
             console.log(err);
           }
           finally{
@@ -111,9 +111,8 @@ const page = () => {
            }
            placeOrder();
         }
-        catch(err: any){
+        catch(err){
           console.log(err);
-          setError(err.message);
         }
         finally{
           setLoading(false);
@@ -153,9 +152,8 @@ const page = () => {
                }
                updateCart();  
             }
-        catch(err: any){
+        catch(err){
             console.log(err);
-            setError(err.message);
         }
         finally{
           setLoading(false);
@@ -276,4 +274,4 @@ const page = () => {
     
 }
 
-export default page;
+export default PaymentRedirectPage;

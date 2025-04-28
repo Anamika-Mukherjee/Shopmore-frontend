@@ -6,7 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import CategoryFilterHeader from "@/components/CategoryFilterHeader";
 
-const layout=({children}: Readonly<{children: React.ReactNode;}>)=>{
+const Layout=({children}: Readonly<{children: React.ReactNode;}>)=>{
   const { user, isLoaded } = useUser();
     const router = useRouter();
   
@@ -32,4 +32,4 @@ const layout=({children}: Readonly<{children: React.ReactNode;}>)=>{
       )
 }
 
-export default layout
+export default Layout;

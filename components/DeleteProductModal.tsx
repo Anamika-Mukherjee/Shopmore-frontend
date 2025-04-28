@@ -40,9 +40,8 @@ const DeleteProductModal = ({product, openModal, onOpenModalChange, openDropdown
             onOpenModalChange(false);
             onOpenDropdownChange(false);
         }
-        catch(err: any){
-         console.log(err.message);
-         setError(err.message);
+        catch(err){
+         console.log(err);
         }
         finally{
           setLoading(false);

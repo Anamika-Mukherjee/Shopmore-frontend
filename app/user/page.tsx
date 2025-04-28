@@ -3,7 +3,7 @@
 import UserProductList from '@/components/UserProductList'
 import React from 'react'
 
-const page = () => {
+const UserPage = () => {
   return (
     <div className="home-container">
       <UserProductList />
@@ -11,4 +11,4 @@ const page = () => {
   )
 }
 
-export default page
+export default UserPage;

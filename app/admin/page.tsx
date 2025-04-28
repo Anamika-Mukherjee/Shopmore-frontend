@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import AdminDashboardCard from "@/components/AdminDashboardCard";
 import { useUser } from "@clerk/nextjs";
 
-const page = () => {
+const AdminDashboardPage = () => {
   const {user} = useUser();
 
   return user ? (
@@ -19,4 +19,4 @@ const page = () => {
   ): null
 }
 
-export default page;
+export default AdminDashboardPage;

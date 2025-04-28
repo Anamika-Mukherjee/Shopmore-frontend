@@ -40,9 +40,8 @@ const AllAdmins = () => {
                 setAllAdmins(data.allAdmins);
               }
           }
-          catch(err: any){
+          catch(err){
            console.log(err);
-           setError(err.message);
           }
           finally{
             setLoading(false);

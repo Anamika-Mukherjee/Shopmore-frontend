@@ -77,9 +77,8 @@ const AddAdminModal = ({open, onOpenChange}: {open: boolean, onOpenChange: React
            onOpenChange(false);
 
         }
-        catch(err: any){
+        catch(err){
             console.log(err);
-            setError(err.message);
         }
         finally{
           setLoading(false);

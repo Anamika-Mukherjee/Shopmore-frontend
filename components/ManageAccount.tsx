@@ -100,9 +100,8 @@ const ManageAccount = () => {
                    }
                     
             } 
-            catch (err: any) {
-                  console.log(err.message);
-                  setError(err.message);
+            catch (err) {
+                  console.log(err);
             }
             finally{
                 setLoading(false);

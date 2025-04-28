@@ -4,7 +4,7 @@ import AddProductModal from "@/components/AddProductModal";
 import AllProducts from "@/components/AllProducts";
 import React, { useState } from "react";
 
-const page = () => {
+const ProductsPage = () => {
     const [openModal, setOpenModal] = useState<boolean>(false);
     
   return (
@@ -33,4 +33,4 @@ const page = () => {
   )
 }
 
-export default page
+export default ProductsPage;

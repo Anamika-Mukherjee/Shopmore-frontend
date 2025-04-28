@@ -38,9 +38,8 @@ const OrderCard = ({order}: {order: Order}) => {
 
                 fetchProduct();
             }
-            catch(err: any){
+            catch(err){
               console.log(err);  
-              setError(err.message);
             }
             finally{
                 setLoading(false);
@@ -78,9 +77,9 @@ const OrderCard = ({order}: {order: Order}) => {
 
                 fetchUser();
             }
-            catch(err: any){
+            catch(err){
               console.log(err);  
-              setError(err.message);
+
             }
             finally{
                 setLoading(false);

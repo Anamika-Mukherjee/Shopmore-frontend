@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 
-const page = () => {
+const SearchProductsPage = () => {
     const searchParams = useSearchParams();
     const q = searchParams.get("q");
     const [products, setProducts] = useState<Product[]>([]);
@@ -45,8 +45,7 @@ const page = () => {
             }
             fetchSearchProducts();
         }
-        catch(err: any){
-            setError(err.message);
+        catch(err){
             console.log(err);
         }
         finally{
@@ -76,4 +75,4 @@ const page = () => {
     )
 }
 
-export default page;
+export default SearchProductsPage;

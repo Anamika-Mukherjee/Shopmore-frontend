@@ -95,9 +95,8 @@ const EditProductModal = ({product, openModal, onOpenModalChange, openDropdown, 
                       };
                       fetchAllCategories();
                     }
-                    catch(err: any){
+                    catch(err){
                       console.log(err);
-                      setError(err.message);
                    }
                    finally{
                     setLoading(false);
@@ -143,9 +142,8 @@ const EditProductModal = ({product, openModal, onOpenModalChange, openDropdown, 
                onOpenModalChange(false);
                onOpenDropdownChange(false);
             }
-            catch(err: any){
+            catch(err){
                 console.log(err);
-                setError(err.message);
             }
             finally{
               setLoading(false);

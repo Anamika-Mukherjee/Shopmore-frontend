@@ -4,7 +4,7 @@ import AddCategoryModal from "@/components/AddCategoryModal";
 import AllCategories from "@/components/AllCategories";
 import React, { useState } from "react";
 
-const page = () => {
+const CategoriesPage = () => {
     const [openModal, setOpenModal] = useState<boolean>(false);
     
     return (
@@ -33,4 +33,4 @@ const page = () => {
     )
 }
 
-export default page
+export default CategoriesPage;

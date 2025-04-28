@@ -3,7 +3,7 @@
 import ManageAccount from "@/components/ManageAccount";
 import React from "react";
 
-const page = () => {
+const AdminUserProfilePage = () => {
   return (
     <div className="w-screen h-full flex flex-col justify-center items-center">
       <ManageAccount />
@@ -11,4 +11,4 @@ const page = () => {
   )
 }
 
-export default page
+export default AdminUserProfilePage;

@@ -9,7 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
 
-const page = () => {
+const ProductDetailsPage = () => {
     const {productId} = useParams();
     const {setError} = useErrorContext();
     const {setInfo} = useInfoContext();
@@ -41,9 +41,8 @@ const page = () => {
                 setImage(data.productDetails.imageUrls[0]);
             }
          }
-         catch(err: any){
-           console.log(err.message);
-           setError(err.message);
+         catch(err){
+           console.log(err);
          }
          finally{
           setLoading(false);
@@ -88,14 +87,12 @@ const page = () => {
           
         }
       }
-      catch(err: any){
-        console.log(err.message);
-        setError(err.message);
+      catch(err){
+        console.log(err);
       }
       finally{
         setLoading(false);
       }
-      
     }
 
     //event handler to handle "buy now" button click
@@ -159,9 +156,8 @@ const page = () => {
 
           }
       }
-      catch(err: any){
-          console.log(err.message);
-          setError(err.message);
+      catch(err){
+          console.log(err);
       }
       finally{
         setLoading(false);
@@ -264,4 +260,4 @@ const page = () => {
     )
 }
 
-export default page;
+export default ProductDetailsPage;

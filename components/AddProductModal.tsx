@@ -84,9 +84,8 @@ const AddProductModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Rea
             };
             fetchAllCategories();
           }
-          catch(err: any){
+          catch(err){
             console.log(err);
-            setError(err.message);
          }
          finally{
           setLoading(false);
@@ -131,9 +130,8 @@ const AddProductModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Rea
            onOpenChange(false);
 
         }
-        catch(err: any){
+        catch(err){
             console.log(err);
-            setError(err.message);
         }
         finally{
           setLoading(false);

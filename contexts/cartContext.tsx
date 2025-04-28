@@ -2,15 +2,15 @@
 "use client";
 import {createContext, useContext, useEffect, useState} from "react";
 
-interface CartContext{
+interface CartContextType{
     cartDetails: Cart;
     setCartDetails: (value: Cart)=>void;
 }
 
-export const cartContext = createContext<CartContext | null>(null);
+export const CartContext = createContext<CartContextType | null>(null);
 
 export const useCartContext = ()=>{
-    const context = useContext(cartContext);
+    const context = useContext(CartContext);
 
     if(!context){
         throw new Error("useCartContext can only be used within useCartContextProvider");
@@ -42,8 +42,8 @@ export const CartContextProvider = ({ children }: { children: React.ReactNode })
     }, [cartDetails]);
   
     return (
-      <cartContext.Provider value={{ cartDetails, setCartDetails }}>
+      <CartContext.Provider value={{ cartDetails, setCartDetails }}>
         {children}
-      </cartContext.Provider>
+      </CartContext.Provider>
     );
   };

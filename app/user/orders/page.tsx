@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 
-const page = () => {
+const OrdersPage = () => {
     const {user} = useUser();
     const {setError} = useErrorContext();
     const [loading, setLoading] = useState<boolean>(false);
@@ -41,9 +41,8 @@ const page = () => {
            };
            fetchOrderDetails();
         }
-        catch(err: any){
+        catch(err){
             console.log(err);
-            setError(err.message);
         }
         finally{
           setLoading(false);
@@ -83,4 +82,4 @@ const page = () => {
   ):null
 }
 
-export default page
+export default OrdersPage;

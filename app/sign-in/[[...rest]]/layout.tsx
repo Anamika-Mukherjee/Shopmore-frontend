@@ -3,7 +3,7 @@
 import React from "react";
 import Header from "@/components/Header";
 
-const layout=({children}: Readonly<{children: React.ReactNode;}>)=>{  
+const Layout=({children}: Readonly<{children: React.ReactNode;}>)=>{  
     return (
         <div className="w-screen min-h-screen h-auto flex flex-col justify-start items-center">
           <Header />
@@ -14,4 +14,4 @@ const layout=({children}: Readonly<{children: React.ReactNode;}>)=>{
   
 
 
-export default layout;
+export default Layout;

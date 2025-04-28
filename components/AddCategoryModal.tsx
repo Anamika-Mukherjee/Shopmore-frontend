@@ -83,9 +83,8 @@ const AddCategoryModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Re
            onOpenChange(false);
 
         }
-        catch(err: any){
+        catch(err){
             console.log(err);
-            setError(err.message);
         }
         finally{
           setLoading(false);

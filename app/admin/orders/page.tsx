@@ -3,7 +3,7 @@
 import AllOrders from "@/components/AllOrders";
 import React, { useState } from "react";
 
-const page = () => {
+const AdminOrdersPage = () => {
     
     return (
       <div className="w-full min-h-[670px] h-auto flex flex-col justify-start items-center space-y-10 px-8 pt-20">
@@ -15,4 +15,4 @@ const page = () => {
     )
 }
 
-export default page;
+export default AdminOrdersPage;

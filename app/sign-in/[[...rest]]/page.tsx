@@ -3,7 +3,7 @@
 import React from "react";
 import {SignIn} from "@clerk/nextjs";
 
-const page = () => {
+const SignInPage = () => {
   return (
     <div className="w-screeen h-[670px] flex justify-center items-center p-8">
         <SignIn signUpUrl="/sign-up" forceRedirectUrl="/redirectToDashboard"/>
@@ -11,4 +11,4 @@ const page = () => {
   )
 }
 
-export default page;
+export default SignInPage;

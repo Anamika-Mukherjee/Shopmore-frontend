@@ -4,7 +4,7 @@ import AddAdminModal from "@/components/AddAdminModal";
 import AllAdmins from "@/components/AllAdmins";
 import React, { useState } from "react";
 
-const page = () => {
+const AllAdminsPage = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   
   return (
@@ -29,4 +29,4 @@ const page = () => {
   )
 }
 
-export default page
+export default AllAdminsPage;

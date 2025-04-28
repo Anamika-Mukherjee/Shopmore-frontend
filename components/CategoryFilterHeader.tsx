@@ -34,9 +34,8 @@ const CategoryFilterHeader = () => {
                     setAllCategories(data.categories);
                 }
           }
-          catch(err: any){
-            console.log(err.message);
-            setError(err.message);
+          catch(err){
+            console.log(err);
           }
           finally{
             setLoading(false);
@@ -80,9 +79,8 @@ const CategoryFilterHeader = () => {
              setProducts(data.products);
          }
     }
-    catch(err: any){
-     console.log(err.message);
-     setError(err.message);
+    catch(err){
+     console.log(err);
     }
     finally{
       setLoading(false);

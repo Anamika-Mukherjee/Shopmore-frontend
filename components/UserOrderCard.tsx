@@ -43,9 +43,8 @@ const UserOrderCard = ({order}: {order: Order}) => {
              }
              fetchProductDetails();
           }
-          catch(err: any){
+          catch(err){
             console.log(err);
-            setError(err.message);
           }
           finally{
             setLoading(false);
