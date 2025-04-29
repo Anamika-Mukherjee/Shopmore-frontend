@@ -21,10 +21,12 @@ const AllAdminsPage = () => {
         </div>
         <div className="w-full min-h-[500px] h-auto flex lg:flex-row flex-col lg:justify-center justify-start items-center lg:items-start lg:flex-wrap lg:pl-10">
                 <AllAdmins />
-        </div>  
+        </div>
+        <div className="w-full lg:w-auto h-auto flex justify-center items-center absolute top-[50px] left-[0px] lg:top-[200px] lg:left-[600px]">
         {openModal && (
         <AddAdminModal open={openModal} onOpenChange={setOpenModal}/>
       )}
+      </div> 
     </div>
   )
 }
