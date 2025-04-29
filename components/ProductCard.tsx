@@ -18,7 +18,7 @@ const ProductCard = ({product}: {product: Product}) => {
   
   return (
     <div className="w-auto h-auto flex justify-start items-start space-x-4 relative">
-    <div className="w-[300px] h-[350px] flex flex-col justify-start items-center relative p-4 shadow-2xl bg-gray-100 rounded-md space-y-6 z-0">
+    <div className="w-[300px] min-h-[350px] h-auto flex flex-col justify-start items-center relative p-4 shadow-2xl bg-gray-100 rounded-md space-y-6 z-0">
       <button 
        type="button"
        onClick={handleClick}
