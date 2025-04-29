@@ -7,6 +7,7 @@ import {z} from "zod";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
+import { useAuth } from "@clerk/nextjs";
 
 interface EditProductModalProps{
   product: Product;
@@ -48,7 +49,8 @@ const EditProductModal = ({product, openModal, onOpenModalChange, openDropdown, 
         const {setInfo} = useInfoContext();
         const [loading, setLoading] = useState<boolean>(false);
         const [categories, setCategories] = useState<Category[]>();
-    
+        const {getToken} = useAuth();
+
         //initialize react-hook-form with zod resolver
         const {
             register,
@@ -122,10 +124,14 @@ const EditProductModal = ({product, openModal, onOpenModalChange, openDropdown, 
     
             try{
               setLoading(true);
+              const token = await getToken();
               //api request to backend to post form and edit product
-               const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products/${product.id}`, {
+               const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/products/${product.id}`, {
                 method: "PUT",
                 body: formData,
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                }
                });
     
 

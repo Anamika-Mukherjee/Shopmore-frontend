@@ -7,6 +7,7 @@ import {z} from "zod";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
+import { useAuth } from "@clerk/nextjs";
 
 //define zod schema for add category form 
 const addCategorySchema = z.object({
@@ -32,6 +33,7 @@ const AddCategoryModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Re
       const {setError} = useErrorContext();
       const {setInfo} = useInfoContext();
       const [loading, setLoading] = useState<boolean>(false);
+      const {getToken} = useAuth();
 
       //initialize react-hook-form with zod resolver
       const {
@@ -64,10 +66,14 @@ const AddCategoryModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Re
 
         try{
           setLoading(true);
+          const token = await getToken();
           //api request to backend to post form and add category
-           const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/categories`, {
+           const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/categories`, {
             method: "POST",
             body: formData,
+            headers: {
+              Authorization: `Bearer ${token}`,
+            }
            });
 
            const data = await response.json();

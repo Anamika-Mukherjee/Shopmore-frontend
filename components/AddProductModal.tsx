@@ -7,6 +7,7 @@ import {z} from "zod";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
+import { useAuth } from "@clerk/nextjs";
 
 //define zod schema for add product form 
 const addProductSchema = z.object({
@@ -43,6 +44,7 @@ const AddProductModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Rea
       const {setInfo} = useInfoContext();
       const [loading, setLoading] = useState<boolean>(false);
       const [categories, setCategories] = useState<Category[]>();
+      const {getToken} = useAuth();
 
       //initialize react-hook-form with zod resolver
       const {
@@ -111,10 +113,14 @@ const AddProductModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Rea
 
         try{
           setLoading(true);
+           const token = await getToken();
           //api request to backend to post form and add product
-           const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products`, {
+           const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/admin/api/products`, {
             method: "POST",
             body: formData,
+            headers: {
+              Authorization: `Bearer ${token}`,
+            }
            });
 
            const data = await response.json();

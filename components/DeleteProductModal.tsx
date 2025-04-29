@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
+import { useAuth } from "@clerk/nextjs";
 
 interface DeleteProductModalProps{
   product: Product;
@@ -17,14 +18,19 @@ const DeleteProductModal = ({product, openModal, onOpenModalChange, openDropdown
     const {setError} = useErrorContext();
     const {setInfo} = useInfoContext();
     const [loading, setLoading] = useState<boolean>(false);
+    const {getToken} = useAuth();
 
     //event handler to handle delete event for product
     const handleDeleteClick = async ()=>{
         try{
            setLoading(true);
+            const token = await getToken();
             //api request to backend to delete selected product from database
-            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products/${product.id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/products/${product.id}`, {
               method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${token}`,
+              }
             });
 
             const data = await response.json();
