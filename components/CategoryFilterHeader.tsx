@@ -99,7 +99,7 @@ const CategoryFilterHeader = () => {
 
   //display category-wise list of products  
   return (allCategories && allCategories.length) && (
-    <div className="w-screen h-[40px] flex justify-center items-center bg-(--brand-secondary) text-white px-8">
+    <div className="w-screen min-h-[40px] h-auto flex justify-center items-center bg-(--brand-secondary) text-white px-8 overflow-x-auto">
       <ul className="w-full h-full flex justify-center items-center space-x-6">
          {  <div className="w-full h-full flex justify-start items-center space-x-6">
             <li 
