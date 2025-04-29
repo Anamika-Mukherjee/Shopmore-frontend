@@ -106,6 +106,8 @@ const AddProductModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Rea
         formData.append("productPrice", String(data.productPrice));
         formData.append("productStock", String(data.productStock));
 
+        console.log(data.productCategory);
+
         //iterate over the image files and add them to formData
         for(let i=0; i<data.productImageFiles.length; i++){
             formData.append("productImages", data.productImageFiles[i]);
