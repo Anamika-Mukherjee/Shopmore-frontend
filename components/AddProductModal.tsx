@@ -8,6 +8,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
 import { useAuth } from "@clerk/nextjs";
+import { useUpdatedProductsContext } from "@/contexts/updatedProductsContext";
 
 //define zod schema for add product form 
 const addProductSchema = z.object({
@@ -45,6 +46,7 @@ const AddProductModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Rea
       const [loading, setLoading] = useState<boolean>(false);
       const [categories, setCategories] = useState<Category[]>();
       const {getToken} = useAuth();
+      const {updatedProducts, setUpdatedProducts} = useUpdatedProductsContext();
 
       //initialize react-hook-form with zod resolver
       const {
@@ -134,6 +136,10 @@ const AddProductModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Rea
            setInfo(data.message);
           //close add product modal when product added successfully
            onOpenChange(false);
+
+           if(data.updatedProducts){
+            setUpdatedProducts(data.updatedProducts);
+           }
 
         }
         catch(err){

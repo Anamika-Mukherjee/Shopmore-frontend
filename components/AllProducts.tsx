@@ -4,12 +4,14 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
+import { useUpdatedProductsContext } from "@/contexts/updatedProductsContext";
 
 const AllProducts = () => {
 
     const [allProducts, setAllProducts] = useState<Product[]>();
     const {setError} = useErrorContext();
     const [loading, setLoading] = useState<boolean>(false);
+    const {updatedProducts} = useUpdatedProductsContext();
 
     useEffect(()=>{
       const fetchProducts = async ()=>{
@@ -54,10 +56,10 @@ const AllProducts = () => {
         )
     }
 
-  //display all products information 
-  return (allProducts && allProducts.length) &&(
-    <div className="w-[90%] lg:w-3/5 h-full flex lg:flex-row flex-col justify-start items-center lg:items-start bg-gray-200 rounded-md space-x-0 space-y-6 lg:space-x-4 p-8 lg:flex-wrap">
-      {allProducts.map((product, index)=>(
+    if(updatedProducts && updatedProducts.length){
+      return (
+        <div className="w-[90%] lg:w-3/5 h-full flex lg:flex-row flex-col justify-start items-center lg:items-start bg-gray-200 rounded-md space-x-0 space-y-6 lg:space-x-4 p-8 lg:flex-wrap">
+          {updatedProducts.map((product, index)=>(
         <div 
         key={index}
         >
@@ -65,7 +67,24 @@ const AllProducts = () => {
         </div> 
       ))}
     </div>
-  )
+      )
+    }
+
+   else{
+      //display all products information 
+      return (allProducts && allProducts.length) &&(
+        <div className="w-[90%] lg:w-3/5 h-full flex lg:flex-row flex-col justify-start items-center lg:items-start bg-gray-200 rounded-md space-x-0 space-y-6 lg:space-x-4 p-8 lg:flex-wrap">
+          {allProducts.map((product, index)=>(
+            <div 
+            key={index}
+            >
+              <ProductCard product={product} />
+            </div> 
+          ))}
+        </div>
+      )
+   } 
+  
 }
 
 export default AllProducts;
