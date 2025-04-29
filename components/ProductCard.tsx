@@ -50,7 +50,7 @@ const ProductCard = ({product}: {product: Product}) => {
         </div>
         <div className="w-full h-auto flex justify-start items-center space-x-5">
             <p className="text-gray-500">Category:</p>
-            <span className="ml-1">{product.category.id}</span>
+            <span className="ml-1">{product.categoryId}</span>
         </div>
         <div className="w-full h-auto flex justify-start items-center space-x-11">
             <p className="text-gray-500">Price:</p>
