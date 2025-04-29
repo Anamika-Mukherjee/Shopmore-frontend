@@ -115,7 +115,7 @@ const AddProductModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Rea
           setLoading(true);
            const token = await getToken();
           //api request to backend to post form and add product
-           const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/admin/api/products`, {
+           const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/products`, {
             method: "POST",
             body: formData,
             headers: {
