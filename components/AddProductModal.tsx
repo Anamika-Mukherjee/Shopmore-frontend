@@ -137,7 +137,8 @@ const AddProductModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Rea
           //close add product modal when product added successfully
            onOpenChange(false);
 
-           if(data.updatedProducts){
+           //store updated products in context variable to immediately update products list
+           if(data.updatedProducts && data.updatedProducts.length){
             setUpdatedProducts(data.updatedProducts);
            }
 

@@ -8,6 +8,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
 import { useAuth } from "@clerk/nextjs";
+import { useUpdatedCategoriesContext } from "@/contexts/updatedCategoriesContext";
 
 //define zod schema for add category form 
 const addCategorySchema = z.object({
@@ -34,6 +35,7 @@ const AddCategoryModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Re
       const {setInfo} = useInfoContext();
       const [loading, setLoading] = useState<boolean>(false);
       const {getToken} = useAuth();
+      const {setUpdatedCategories} = useUpdatedCategoriesContext();
 
       //initialize react-hook-form with zod resolver
       const {
@@ -87,6 +89,11 @@ const AddCategoryModal = ({open, onOpenChange}: {open: boolean, onOpenChange: Re
            setInfo(data.message);
            //close add category modal when category added successfully
            onOpenChange(false);
+
+           //store updated categories in context variable to immediately update categories list
+           if(data.updatedCategories && data.updatedCategories.length){
+            setUpdatedCategories(data.updatedCategories);
+           }
 
         }
         catch(err){

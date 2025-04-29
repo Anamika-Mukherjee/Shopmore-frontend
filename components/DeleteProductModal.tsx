@@ -5,6 +5,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
 import { useAuth } from "@clerk/nextjs";
+import { useUpdatedProductsContext } from "@/contexts/updatedProductsContext";
 
 interface DeleteProductModalProps{
   product: Product;
@@ -19,6 +20,7 @@ const DeleteProductModal = ({product, openModal, onOpenModalChange, openDropdown
     const {setInfo} = useInfoContext();
     const [loading, setLoading] = useState<boolean>(false);
     const {getToken} = useAuth();
+    const {setUpdatedProducts} = useUpdatedProductsContext();
 
     //event handler to handle delete event for product
     const handleDeleteClick = async ()=>{
@@ -45,6 +47,11 @@ const DeleteProductModal = ({product, openModal, onOpenModalChange, openDropdown
             //close delete product modal and product actions dropdown menu when item is deleted
             onOpenModalChange(false);
             onOpenDropdownChange(false);
+
+            //store updated products in context variable to immediately updated product list
+            if(data.updatedProducts && data.updatedProducts.length){
+              setUpdatedProducts(data.updatedProducts);
+             }
         }
         catch(err){
          console.log(err);

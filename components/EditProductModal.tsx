@@ -8,6 +8,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useErrorContext } from "@/contexts/errorContext";
 import { useInfoContext } from "@/contexts/infoContext";
 import { useAuth } from "@clerk/nextjs";
+import { useUpdatedProductsContext } from "@/contexts/updatedProductsContext";
 
 interface EditProductModalProps{
   product: Product;
@@ -50,6 +51,7 @@ const EditProductModal = ({product, openModal, onOpenModalChange, openDropdown, 
         const [loading, setLoading] = useState<boolean>(false);
         const [categories, setCategories] = useState<Category[]>();
         const {getToken} = useAuth();
+        const {setUpdatedProducts} = useUpdatedProductsContext();
 
         //initialize react-hook-form with zod resolver
         const {
@@ -147,6 +149,11 @@ const EditProductModal = ({product, openModal, onOpenModalChange, openDropdown, 
                //close edit product modal and product actions dropdown menu when product edited successfully
                onOpenModalChange(false);
                onOpenDropdownChange(false);
+
+               //store updated products in context variable to immediately updated product list
+               if(data.updatedProducts && data.updatedProducts.length){
+                setUpdatedProducts(data.updatedProducts);
+               }
             }
             catch(err){
                 console.log(err);
