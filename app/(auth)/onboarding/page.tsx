@@ -13,11 +13,12 @@ import { useInfoContext } from "@/contexts/infoContext";
 
 //define zod schema for user profile
 const profileSchema = z.object({
-  name: z.string().min(3, "Name must be atleast 3 characters"),
+  name: z.string()
+       .min(3, "Name must be atleast 3 characters")
+       .regex(/^[A-Za-z\s]+$/, "Must be a valid name"),
   contactNumber: z
                 .string()
-                .min(10, "Contact number must be atleast 10 characters")
-                .regex(/^\+?[0-9]+$/, "Must be a valid phone number"),
+                .regex(/^\d{10}$/, "Must be a valid phone number"),
 });
 
 //define type for schema

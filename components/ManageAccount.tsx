@@ -34,9 +34,39 @@ const ManageAccount = () => {
       } 
     }, [user]);
 
+    //define regex patterns to validate form
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const contactNumberRegex = /^\d{10}$/; // 10 digit number (customize if needed)
+
+    //function to validate form
+    const validateForm = () => {
+        //return if email field is empty and only allow valid email id pattern
+        if (!email || !emailRegex.test(email)) {
+            setError("Please enter a valid email address.");
+            return false;
+        }
+        //return if name field is empty and only allow alphabets and spaces
+        if (!name || !nameRegex.test(name)) {
+            setError("Name must contain only alphabets and spaces.");
+            return false;
+        }
+        //return if contact number field is empty and only allow 10 digit numbers
+        if (!contactNumber || !contactNumberRegex.test(contactNumber)) {
+            setError("Please enter a valid 10-digit contact number.");
+            return false;
+        }
+        return true;
+    };
+
+
     //submit event handler for form submit event
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        //return if form not validated
+        if (!validateForm()) {
+            return; 
+        }
         if(user && user.id){
             try {
                    if(user.publicMetadata.role === "ADMIN"){
