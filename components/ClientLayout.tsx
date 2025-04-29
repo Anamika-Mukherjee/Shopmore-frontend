@@ -5,11 +5,13 @@ import { CartContextProvider } from "@/contexts/cartContext";
 import { ProductsContextProvider } from "@/contexts/productsContext";
 import { ErrorContextProvider } from "@/contexts/errorContext";
 import { InfoContextProvider } from "@/contexts/infoContext";
+import { UpdatedProductsContextProvider } from "@/contexts/updatedProductsContext";
 
 export default function ClientLayout({children}: Readonly<{children: React.ReactNode}>){
   const [products, setProducts] = useState<Product[]>([]);
     return(
         <>
+        <UpdatedProductsContextProvider>
            <InfoContextProvider>
               <ErrorContextProvider>
                     <ProductsContextProvider>
@@ -19,6 +21,7 @@ export default function ClientLayout({children}: Readonly<{children: React.React
                     </ProductsContextProvider>
               </ErrorContextProvider>
           </InfoContextProvider>
+          </UpdatedProductsContextProvider>
         </>
     )
 }
