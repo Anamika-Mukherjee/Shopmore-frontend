@@ -63,7 +63,7 @@
   @apply w-screen min-h-screen h-auto flex flex-col justify-start items-center p-4 lg:items-start lg:p-8;
 }
 .header-container{
-  @apply w-screen h-[40px] lg:h-[50px] flex justify-between items-center bg-amber-500 text-white pr-8 space-x-10;
+  @apply w-screen h-[40px] lg:h-[50px] flex justify-between items-center bg-amber-500 text-white pr-8 pl-4 space-x-10;
 }
 .logo-container{
   @apply w-[80px] h-[10px] lg:w-[100px] lg:h-full flex justify-center items-center;
