@@ -26,7 +26,7 @@ export function ErrorContextProvider({ children }: { children: ReactNode }) {
       {children}
       {error && open && (
         <div
-          className="w-[300px] h-auto flex justify-between items-start p-2 fixed top-1/7 left-1/3 bg-gray-200  shadow-md rounded-md"
+          className="min-w-[300px] w-auto h-auto flex justify-between items-start p-2 fixed top-1/7 left-0 lg:left-1/3 bg-gray-200  shadow-md rounded-md"
         >
           <p className="text-red-500 text-sm">{error}</p>
           <button

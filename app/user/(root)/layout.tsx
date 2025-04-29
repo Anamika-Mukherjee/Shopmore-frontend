@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Header from "@/components/Header";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import CategoryFilterHeader from "@/components/CategoryFilterHeader";
 
 const Layout=({children}: Readonly<{children: React.ReactNode;}>)=>{
   const { user, isLoaded } = useUser();
@@ -24,11 +25,10 @@ const Layout=({children}: Readonly<{children: React.ReactNode;}>)=>{
   
     return (
         <div className="w-screen min-h-screen h-auto flex flex-col justify-start items-center">
-          <Header />
+          <CategoryFilterHeader />
           {children}        
         </div>
       )
 }
 
 export default Layout;
-

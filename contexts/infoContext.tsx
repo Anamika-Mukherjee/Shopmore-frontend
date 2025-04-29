@@ -26,7 +26,7 @@ export function InfoContextProvider({ children }: { children: ReactNode }) {
       {children}
       {info && open && (
         <div
-          className="w-[300px] h-auto flex justify-between items-start p-2 fixed top-1/7 left-1/3 bg-gray-200  shadow-md rounded-md"
+          className="w-[300px] h-auto flex justify-between items-start p-2 fixed top-1/7 left-0 lg:left-1/3 bg-gray-200  shadow-md rounded-md"
         >
           <p className="text-green-600 text-sm">{info}</p>
           <button

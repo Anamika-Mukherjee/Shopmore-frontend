@@ -79,7 +79,11 @@ const OrdersPage = () => {
          </div>
 
     </div>
-  ):null
+  ):(
+    <div className="w-screen min-h-[670px] h-auto flex flex-col justify-center items-center p-8 space-y-6">
+      <p className="text-lg font-semibold tracking-wider">You don't have any orders yet</p>
+    </div>
+  )
 }
 
 export default OrdersPage;
