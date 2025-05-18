@@ -19,7 +19,7 @@ const addCategorySchema = z.object({
     categoryDescription: z
                         .string()
                         .min(5, "Category description must be atleast 3 characters")
-                        .max(100, "Category description must not be more than 100 characters"),
+                        .max(500, "Category description must not be more than 500 characters"),
     categoryImageFiles:  z
                         .any()
                         .refine((files) => files instanceof FileList && files.length > 0, {

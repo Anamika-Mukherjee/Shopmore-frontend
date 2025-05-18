@@ -15,13 +15,13 @@ const addProductSchema = z.object({
     productName: z
                  .string()
                  .min(3, "Product name must be atleast 3 characters")
-                 .max(20, "Product name must not be more than 20 characters"),
+                 .max(100, "Product name must not be more than 100 characters"),
     productCategory: z
                      .string(),
     productDescription: z
                         .string()
                         .min(5, "Product description must be atleast 3 characters")
-                        .max(100, "Product description must not be more than 100 characters"),
+                        .max(500, "Product description must not be more than 500 characters"),
     productPrice: z
                   .coerce
                   .number()

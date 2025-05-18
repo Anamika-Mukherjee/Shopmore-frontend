@@ -12,9 +12,7 @@ import { useUpdatedProductsContext } from "@/contexts/updatedProductsContext";
 
 interface EditProductModalProps{
   product: Product;
-  openModal: boolean;
   onOpenModalChange: React.Dispatch<React.SetStateAction<boolean>>;
-  openDropdown: boolean;
   onOpenDropdownChange: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -23,13 +21,13 @@ const editProductSchema = z.object({
     productName: z
                  .string()
                  .min(3, "Product name must be atleast 3 characters")
-                 .max(20, "Product name must not be more than 20 characters"),
+                 .max(100, "Product name must not be more than 100 characters"),
     productCategory: z
                      .string(),
     productDescription: z
                         .string()
                         .min(5, "Product description must be atleast 3 characters")
-                        .max(100, "Product description must not be more than 100 characters"),
+                        .max(500, "Product description must not be more than 500 characters"),
     productPrice: z
                   .coerce
                   .number()
@@ -45,7 +43,7 @@ const editProductSchema = z.object({
 //define schema type for zod schema
 type EditProductSchema = z.infer<typeof editProductSchema>;
 
-const EditProductModal = ({product, openModal, onOpenModalChange, openDropdown, onOpenDropdownChange}: EditProductModalProps) => {
+const EditProductModal = ({product, onOpenModalChange, onOpenDropdownChange}: EditProductModalProps) => {
         const {setError} = useErrorContext();
         const {setInfo} = useInfoContext();
         const [loading, setLoading] = useState<boolean>(false);

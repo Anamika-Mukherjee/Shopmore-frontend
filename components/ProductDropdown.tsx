@@ -123,7 +123,7 @@ const ProductDropdown = ({open, onOpenChange, product}: {open: boolean, onOpenCh
                 )} 
                 {productAction.value === "edit" && (
                     <div className="w-full h-full flex justify-center items-center p-4">
-                    <EditProductModal product = {product} openModal={openModal} onOpenModalChange={setOpenModal} openDropdown={open} onOpenDropdownChange = {onOpenChange}/>
+                    <EditProductModal product = {product} onOpenModalChange={setOpenModal} onOpenDropdownChange = {onOpenChange}/>
                     </div>
                 )} 
                 {productAction.value === "delete" && (

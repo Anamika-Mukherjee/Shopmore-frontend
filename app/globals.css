@@ -33,7 +33,6 @@
 .cl-formButtonPrimary{
   @apply bg-(--brand-secondary) hover:bg-(--brand-secondary-dark);
 }
-
 .cl-button{
   @apply border-none;
 }
