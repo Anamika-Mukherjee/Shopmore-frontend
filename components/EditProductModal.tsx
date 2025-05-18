@@ -38,6 +38,7 @@ const editProductSchema = z.object({
                   .min(1, "Product stock must be atleast 1"),
     productImageFiles:  z
                         .any()
+                        .optional()
 });
 
 //define schema type for zod schema
@@ -61,7 +62,7 @@ const EditProductModal = ({product, onOpenModalChange, onOpenDropdownChange}: Ed
             resolver: zodResolver(editProductSchema),
             defaultValues: {
                 productName: product.name,
-                productCategory: product.category.name,
+                productCategory: product.category.id,
                 productDescription: product.description,
                 productPrice: product.price,
                 productStock: product.stock,
