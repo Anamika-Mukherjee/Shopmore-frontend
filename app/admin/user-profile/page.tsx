@@ -5,7 +5,7 @@ import React from "react";
 
 const AdminUserProfilePage = () => {
   return (
-    <div className="w-screen h-full flex flex-col justify-center items-center">
+    <div className="w-screen h-full flex flex-col justify-center items-center pt-20">
       <ManageAccount />
     </div>
   )

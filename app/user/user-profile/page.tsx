@@ -5,7 +5,7 @@ import React from "react";
 
 const UserProfilePage = () => {
   return (
-    <div className="w-full lg:w-4/5 h-full flex flex-col justify-center items-center">
+    <div className="w-full lg:w-4/5 h-full flex flex-col justify-center items-center pt-20">
       <ManageAccount />
     </div>
   )
